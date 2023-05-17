@@ -108,13 +108,7 @@ org.killbill.billing.plugin.avatax.licenseKey=#{params.require(:license_key)}\n"
       (current_config.values || ['']).first.split.each do |property|
         k, v = property.split('=')
         plugin_config << case k
-                         when 'org.killbill.billing.plugin.avatax.accountId'
-                           next
-                         when 'org.killbill.billing.plugin.avatax.licenseKey'
-                           next
-                         when 'org.killbill.billing.plugin.avatax.companyCode'
-                           next
-                         when 'org.killbill.billing.plugin.avatax.commitDocuments'
+                         when 'org.killbill.billing.plugin.avatax.accountId', 'org.killbill.billing.plugin.avatax.licenseKey', 'org.killbill.billing.plugin.avatax.companyCode', 'org.killbill.billing.plugin.avatax.commitDocuments'
                            next
                          else
                            "#{k}=#{v}\n"
