@@ -20,10 +20,6 @@ Gem::Specification.new do |s|
 
   s.metadata['rubygems_mfa_required'] = 'true'
 
-  s.add_dependency 'font-awesome-rails'
-  s.add_dependency 'jquery-datatables-rails'
-  s.add_dependency 'jquery-rails', '~> 4.5.1'
   s.add_dependency 'killbill-client'
   s.add_dependency 'rails', '~> 7.0'
-  s.add_dependency 'sass-rails'
 end
