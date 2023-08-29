@@ -15,15 +15,9 @@ Gem::Specification.new do |s|
   s.summary     = 'Kill Bill Avatax UI mountable engine'
   s.description = 'Rails UI plugin for the Avatax plugin.'
   s.license     = 'MIT'
-
   s.files = Dir['{app,config,db,lib}/**/*'] + %w[MIT-LICENSE Rakefile README.md]
-
   s.metadata['rubygems_mfa_required'] = 'true'
-
-  s.add_dependency 'font-awesome-rails'
-  s.add_dependency 'jquery-datatables-rails'
-  s.add_dependency 'jquery-rails', '~> 4.5.1'
+  s.add_dependency 'killbill-assets-ui'
   s.add_dependency 'killbill-client'
   s.add_dependency 'rails', '~> 7.0'
-  s.add_dependency 'sass-rails'
 end
