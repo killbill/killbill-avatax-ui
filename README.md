@@ -55,11 +55,11 @@ To run tests:
 rails t
 ```
 This plugin is using [killbill-assets-ui](https://github.com/killbill/killbill-assets-ui) to load the common assets.
-If you want to override the assets you can add it to ```app/assets/stylesheet/avatax/stylesheets``` or ```app/assets/stylesheet/avatax/javascripts```
+If you want to override the assets you can add it to ```app/assets/stylesheet/avatax``` or ```app/assets/stylesheet/avatax```
 
 For integrate run with [killbill-admin-ui-standalone](https://github.com/killbill/killbill-admin-ui-standalone), please update the Gemfile to use Avatax locally
 
 ```
-# gem 'killbill-avatax'
-gem 'killbill-avatax', :path => '../killbill-avatax-ui'
+# gem 'killbill-avatax-ui'
+gem 'killbill-avatax-ui', :path => '../killbill-avatax-ui'
 ```
