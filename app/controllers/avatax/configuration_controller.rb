@@ -105,8 +105,8 @@ org.killbill.billing.plugin.avatax.licenseKey=#{params.require(:license_key)}\n"
       # The user should really use the more powerful /admin_tenants screen - this plugin screen was just created
       # to be able to pass the initial AvaTax certification.
       current_config = KillBillClient::Model::Tenant.get_tenant_plugin_config('killbill-avatax', options_for_klient)
-
-      (current_config.values || ['']).first.split.each do |property|
+      config_values = current_config.values
+      config_values.present? && config_values.first.split.each do |property|
         k, v = property.split('=')
         plugin_config << case k
                          when 'org.killbill.billing.plugin.avatax.accountId', 'org.killbill.billing.plugin.avatax.licenseKey', 'org.killbill.billing.plugin.avatax.companyCode', 'org.killbill.billing.plugin.avatax.commitDocuments'
