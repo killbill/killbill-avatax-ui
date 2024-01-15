@@ -6,7 +6,7 @@
 # We need to explicitly require all of our dependencies listed in avatax.gemspec
 #
 # See also https://github.com/carlhuda/bundler/issues/49
-require 'killbill-assets-ui'
+require 'killbill_assets_ui'
 require 'killbill_client'
 
 module Avatax
