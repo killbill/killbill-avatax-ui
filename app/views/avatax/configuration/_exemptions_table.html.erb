@@ -1,4 +1,4 @@
-<table id="exemptions-table" class="table table-condensed table-striped mobile-data">
+<table id="exemptions-table" class="configuration-table">
   <thead>
   <tr>
     <th>Account ID</th>
@@ -12,7 +12,7 @@
         <td><%= exemption[:account_id] %></td>
         <td><%= exemption[:customer_usage_type] %></td>
         <td>
-          <%= link_to '<i class="fa fa-times"></i>'.html_safe, remove_exemption_configuration_path(:account_id => exemption[:account_id]), :method => :delete %>
+          <%= link_to 'Remove'.html_safe, remove_exemption_configuration_path(:account_id => exemption[:account_id]), :method => :delete %>
         </td>
       </tr>
   <% end %>

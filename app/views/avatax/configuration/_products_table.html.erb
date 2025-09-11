@@ -1,4 +1,4 @@
-<table id="products-table" class="table table-condensed table-striped mobile-data">
+<table id="products-table" class="configuration-table">
   <thead>
   <tr>
     <th>Product name</th>
@@ -12,7 +12,7 @@
         <td><%= tax_code[:productName] %></td>
         <td><%= tax_code[:taxCode] %></td>
         <td>
-          <%= link_to '<i class="fa fa-times"></i>'.html_safe, remove_tax_code_configuration_path(:product_name => tax_code[:productName]), :method => :delete %>
+          <%= link_to 'Remove'.html_safe, remove_tax_code_configuration_path(:product_name => tax_code[:productName]), :method => :delete %>
         </td>
       </tr>
   <% end %>
