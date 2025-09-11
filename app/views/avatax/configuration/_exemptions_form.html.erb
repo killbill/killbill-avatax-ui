@@ -1,20 +1,36 @@
 <%= form_tag do_set_exemption_configuration_path, :class => 'form-horizontal' do %>
-    <div class="form-group">
-      <%= label_tag :account_id, 'Account ID', :class => 'col-sm-2 control-label' %>
+    <div class="form-group d-flex pb-3">
+      <%= label_tag :account_id, 'Account ID', :class => 'col-sm-3 control-label' %>
 
-      <div class="col-sm-10">
+      <div class="col-sm-9">
         <%= text_field_tag :account_id, nil, :class => 'form-control' %>
       </div>
     </div>
-    <div class="form-group">
-      <%= label_tag :customer_usage_type, 'Customer Usage Type', :class => 'col-sm-2 control-label' %>
-      <div class="col-sm-10">
+    <div class="form-group d-flex pb-3 border-bottom mb-3">
+      <%= label_tag :customer_usage_type, 'Customer Usage Type', :class => 'col-sm-3 control-label' %>
+      <div class="col-sm-9">
         <%= text_field_tag :customer_usage_type, nil, :class => 'form-control' %>
       </div>
     </div>
-    <div class="form-group">
-      <div class="col-sm-offset-2 col-sm-10">
-        <%= submit_tag 'Save', :class => 'btn btn-default' %>
-      </div>
+    <div class="form-group d-flex justify-content-end pb-3">
+      <%= render "kaui/components/button/button", {
+        label: 'Close',
+        variant: "outline-secondary d-inline-flex align-items-center gap-1",
+        type: "button",
+        html_class: "kaui-button custom-hover mx-2",
+        html_options: {
+          id: "closeButton",
+          onclick: "window.history.back();"
+        }
+      } %>
+      <%= render "kaui/components/button/button", {
+        label: 'Save',
+        variant: "outline-secondary d-inline-flex align-items-center gap-1",
+        type: "submit",
+        html_class: "kaui-dropdown custom-hover",
+        html_options: {
+          id: "saveButton"
+        }
+      } %>
     </div>
 <% end %>
