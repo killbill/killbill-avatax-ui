@@ -1,8 +1,29 @@
 <table id="products-table" class="configuration-table">
+  <colgroup>
+    <col style="width: 45%">
+    <col style="width: 45%">
+    <col style="width: 10%">
+  </colgroup>
   <thead>
   <tr>
-    <th>Product name</th>
-    <th>Tax code</th>
+    <th class="sortable-header" data-column="0">
+      <div class="header-content">
+        <span class="header-text">Product name</span>
+        <div class="sort-icons">
+          <%= image_tag "avatax/sort-up.svg", class: "sort-icon sort-asc" %>
+          <%= image_tag "avatax/sort-down.svg", class: "sort-icon sort-desc" %>
+        </div>
+      </div>
+    </th>
+    <th class="sortable-header" data-column="1">
+      <div class="header-content">
+        <span class="header-text">Tax code</span>
+        <div class="sort-icons">
+          <%= image_tag "avatax/sort-up.svg", class: "sort-icon sort-asc" %>
+          <%= image_tag "avatax/sort-down.svg", class: "sort-icon sort-desc" %>
+        </div>
+      </div>
+    </th>
     <th></th>
   </tr>
   </thead>
@@ -24,11 +45,30 @@
     $('#products-table').dataTable({
       "dom": "t",
       "paging": false,
+      "ordering": true,
       "columns": [
         null,
         null,
         { "orderable": false }
       ]
+    });
+    var productsTable = $('#products-table').DataTable();
+
+    $('#products-table thead').on('click', 'th.sortable-header, th.sortable-header *', function(e) {
+      var th = $(this).closest('th');
+      var columnIndex = parseInt(th.data('column'), 10);
+      var currentOrder = productsTable.order();
+      var direction = 'asc';
+
+      if (currentOrder.length && currentOrder[0][0] === columnIndex) {
+        direction = currentOrder[0][1] === 'asc' ? 'desc' : 'asc';
+      }
+
+      productsTable.order([columnIndex, direction]).draw();
+
+      // Update icon state
+      $('#products-table thead th .sort-icon').removeClass('active');
+      th.find('.sort-' + (direction === 'asc' ? 'asc' : 'desc')).addClass('active');
     });
   });
 <% end %>
