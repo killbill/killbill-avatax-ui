@@ -1,6 +1,14 @@
 <div class="kaui-container configuration-index">
-  <%= render "kaui/components/breadcrumb/breadcrumb" %>
+  <%= render partial: 'kaui/components/breadcrumb/breadcrumb', locals: {
+    breadcrumbs: [
+      { label: 'Settings', href: '/' },
+      { label: "AvaTax", href: '#' }
+    ]
+  } %>
+
   <div class="d-flex" style="gap: 4rem;">
+    <%= render template: 'kaui/layouts/kaui_setting_sidebar' %>
+
     <div class="configuration" style="max-width: 80rem;">
       <div class="d-flex flex-column">
         <div class="configuration-header mb-4">
