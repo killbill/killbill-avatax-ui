@@ -9,75 +9,69 @@
   <div class="d-flex" style="gap: 4rem;">
     <%= render template: 'kaui/layouts/kaui_setting_sidebar' %>
 
-    <div class="configuration" style="max-width: 80rem;">
-      <div class="d-flex flex-column">
-        <div class="configuration-header mb-4">
-          <div class="d-flex align-items-center">
-          <h2>Configured products</h2>
+    <div class="d-flex flex-column" style="max-width: 80rem; flex: 1; gap: 2rem;">
+      <div class="configuration">
+        <div class="d-flex flex-column">
+          <div class="configuration-header mb-4">
+            <div class="d-flex align-items-center">
+            <h2>Configured products</h2>
+            </div>
+            <span>
+              <%= link_to set_tax_code_configuration_path do %>
+                <%= render "kaui/components/button/button", {
+                  label: "Add Product",
+                  icon: "kaui/plus.svg",
+                  variant: "outline-secondary d-inline-flex align-items-center gap-1",
+                  type: "button",
+                  html_class: "kaui-dropdown custom-hover",
+                } %>
+              <% end %>
+            </span>
           </div>
-          <span>
-            <%= link_to set_tax_code_configuration_path do %>
-              <%= render "kaui/components/button/button", {
-                label: "Add Product",
-                icon: "kaui/plus.svg",
-                variant: "outline-secondary d-inline-flex align-items-center gap-1",
-                type: "button",
-                html_class: "kaui-dropdown custom-hover",
-              } %>
-            <% end %>
-          </span>
+          <%= render :partial => 'avatax/configuration/products_table', :locals => {:tax_codes => @tax_codes} %>
         </div>
-        <%= render :partial => 'avatax/configuration/products_table', :locals => {:tax_codes => @tax_codes} %>
       </div>
-    </div>
-  </div>
-</div>
 
-<div class="kaui-container configuration-index">
-  <div class="d-flex" style="gap: 4rem;">
-    <div class="configuration" style="max-width: 80rem;">
-      <div class="d-flex flex-column">
-        <div class="configuration-header mb-4">
-          <div class="d-flex align-items-center">
-          <h2>Exempt accounts</h2>
+      <div class="configuration">
+        <div class="d-flex flex-column">
+          <div class="configuration-header mb-4">
+            <div class="d-flex align-items-center">
+            <h2>Exempt accounts</h2>
+            </div>
+            <span>
+              <%= link_to set_exemption_configuration_path do %>
+                <%= render "kaui/components/button/button", {
+                  label: "Add Exemption",
+                  icon: "kaui/plus.svg",
+                  variant: "outline-secondary d-inline-flex align-items-center gap-1",
+                  type: "button",
+                  html_class: "kaui-dropdown custom-hover",
+                } %>
+              <% end %>
+            </span>
           </div>
-          <span>
-            <%= link_to set_exemption_configuration_path do %>
-              <%= render "kaui/components/button/button", {
-                label: "Add Exemption",
-                icon: "kaui/plus.svg",
-                variant: "outline-secondary d-inline-flex align-items-center gap-1",
-                type: "button",
-                html_class: "kaui-dropdown custom-hover",
-              } %>
-            <% end %>
-          </span>
+          <%= render :partial => 'avatax/configuration/exemptions_table', :locals => {:exemptions => @exemptions} %>
         </div>
-        <%= render :partial => 'avatax/configuration/exemptions_table', :locals => {:exemptions => @exemptions} %>
       </div>
-    </div>
-  </div>
-</div>
 
-<div class="kaui-container configuration-index">
-  <div class="d-flex" style="gap: 4rem;">
-    <div class="configuration" style="max-width: 80rem;">
-      <div class="d-flex flex-column">
-        <div class="configuration-header mb-4">
-          <div class="d-flex align-items-center">
-          <h2>Plugin configuration</h2>
+      <div class="configuration">
+        <div class="d-flex flex-column">
+          <div class="configuration-header mb-4">
+            <div class="d-flex align-items-center">
+            <h2>Plugin configuration</h2>
+            </div>
+            <span>
+              <%= link_to plugin_configuration_path do %>
+                <%= render "kaui/components/button/button", {
+                  label: "Update Plugin Configuration",
+                  icon: "kaui/plus.svg",
+                  variant: "outline-secondary d-inline-flex align-items-center gap-1",
+                  type: "button",
+                  html_class: "kaui-dropdown custom-hover",
+                } %>
+              <% end %>
+            </span>
           </div>
-          <span>
-            <%= link_to plugin_configuration_path do %>
-              <%= render "kaui/components/button/button", {
-                label: "Update Plugin Configuration",
-                icon: "kaui/plus.svg",
-                variant: "outline-secondary d-inline-flex align-items-center gap-1",
-                type: "button",
-                html_class: "kaui-dropdown custom-hover",
-              } %>
-            <% end %>
-          </span>
         </div>
       </div>
     </div>
