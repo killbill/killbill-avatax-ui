@@ -99,7 +99,7 @@ module Avatax
       plugin_config = "org.killbill.billing.plugin.avatax.accountId=#{params.require(:account_id)}
 org.killbill.billing.plugin.avatax.licenseKey=#{params.require(:license_key)}\n"
       plugin_config << "org.killbill.billing.plugin.avatax.commitDocuments=#{params[:commit_documents] == '1'}\n"
-      plugin_config << "org.killbill.billing.plugin.avatax.companyCode=#{params[:company_code]}\n" unless params[:company_code].blank?
+      plugin_config << "org.killbill.billing.plugin.avatax.companyCode=#{params[:company_code]}\n" if params[:company_code].present?
 
       # Merge the new values with the current config. The config will likely contain additional fields that we don't want to clobber.
       # The user should really use the more powerful /admin_tenants screen - this plugin screen was just created
