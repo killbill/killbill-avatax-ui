@@ -6,15 +6,15 @@ Avatax::Engine.routes.draw do
   resources :configuration, only: [:index]
 
   scope '/configuration' do
-    match '/tax_code' => 'configuration#set_tax_code', :via => :get, :as => 'set_tax_code_configuration'
-    match '/tax_code' => 'configuration#do_set_tax_code', :via => :post, :as => 'do_set_tax_code_configuration'
-    match '/tax_code' => 'configuration#remove_tax_code', :via => :delete, :as => 'remove_tax_code_configuration'
+    get '/tax_code' => 'configuration#set_tax_code', :as => 'set_tax_code_configuration'
+    post '/tax_code' => 'configuration#do_set_tax_code', :as => 'do_set_tax_code_configuration'
+    delete '/tax_code' => 'configuration#remove_tax_code', :as => 'remove_tax_code_configuration'
 
-    match '/exemption' => 'configuration#set_exemption', :via => :get, :as => 'set_exemption_configuration'
-    match '/exemption' => 'configuration#do_set_exemption', :via => :post, :as => 'do_set_exemption_configuration'
-    match '/exemption' => 'configuration#remove_exemption', :via => :delete, :as => 'remove_exemption_configuration'
+    get '/exemption' => 'configuration#set_exemption', :as => 'set_exemption_configuration'
+    post '/exemption' => 'configuration#do_set_exemption', :as => 'do_set_exemption_configuration'
+    delete '/exemption' => 'configuration#remove_exemption', :as => 'remove_exemption_configuration'
 
-    match '/plugin' => 'configuration#plugin_configuration', :via => :get, :as => 'plugin_configuration'
-    match '/plugin' => 'configuration#update_plugin_configuration', :via => :post, :as => 'update_plugin_configuration'
+    get '/plugin' => 'configuration#plugin_configuration', :as => 'plugin_configuration'
+    post '/plugin' => 'configuration#update_plugin_configuration', :as => 'update_plugin_configuration'
   end
 end
